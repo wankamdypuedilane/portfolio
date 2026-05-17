@@ -82,7 +82,7 @@ export default function Hero() {
           <div className="glass" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 18px", borderRadius: 999 }}>
             <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#10b981", display: "inline-block", boxShadow: "0 0 10px #10b981" }} className="animate-pulse" />
             <span style={{ fontFamily: "var(--font-jetbrains)", fontSize: "0.72rem", color: "#94a3b8", letterSpacing: "0.05em" }}>
-              Stage & Alternance · DevOps / Cloud · Disponible Sept. 2026
+              Alternance Sept. 2026 · Stage Ingénieur Fév. 2027 · DevOps / Cloud
             </span>
           </div>
         </motion.div>

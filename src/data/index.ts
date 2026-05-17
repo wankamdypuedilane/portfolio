@@ -11,7 +11,7 @@ export const STATS = [
   { value: 23, label: "Livres publiés", suffix: "" },
   { value: 6, label: "Projets réalisés", suffix: "+" },
   { value: 2, label: "Apps en production", suffix: "" },
-  { value: 12, label: "Mois de stage / alternance", suffix: "" },
+  { value: 2026, label: "Alternance dès Sept.", suffix: "" },
 ];
 
 export const SKILLS = [
@@ -194,10 +194,10 @@ export const TIMELINE = [
     type: "education",
   },
   {
-    year: "2026",
-    title: "Recherche stage & alternance DevOps / Cloud",
-    subtitle: "12 mois — Disponible septembre 2026 — France",
-    description: "À la recherche d'un stage ou d'une alternance pour contribuer à la fiabilité, l'automatisation et la qualité de livraison d'applications web.",
+    year: "2026 – 2027",
+    title: "Recherche alternance & stage ingénieur DevOps / Cloud",
+    subtitle: "Alternance 12 mois · Sept. 2026 — Stage ingénieur 6 mois · Fév. 2027",
+    description: "Disponible en alternance (12 mois) à partir de septembre 2026, puis en stage ingénieur (6 mois) à partir de février 2027. Ouvert à toute la France.",
     type: "current",
   },
 ];

@@ -62,7 +62,7 @@ export default function Contact() {
             <span className="gradient-text">ensemble</span>
           </h2>
           <p style={{ color: "#64748b", fontSize: "0.9rem", maxWidth: 460, margin: "0 auto" }}>
-            Une opportunité de stage ou d&apos;alternance, un projet, une collaboration — je suis disponible.
+            Alternance (12 mois) dès sept. 2026 · Stage ingénieur (6 mois) dès fév. 2027 · Ouvert à toute la France.
           </p>
         </motion.div>
 
