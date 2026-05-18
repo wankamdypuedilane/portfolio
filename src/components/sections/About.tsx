@@ -54,7 +54,7 @@ const CARDS = [
 
 export default function About() {
   return (
-    <section id="about" style={{ padding: "120px 20px", position: "relative", overflow: "hidden" }}>
+    <section id="about" className="section-pad" style={{ padding: "120px 20px", position: "relative", overflow: "hidden" }}>
       {/* Background accent */}
       <div style={{
         position: "absolute", top: "10%", right: "-5%",
@@ -154,7 +154,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="glass"
+          className="glass bio-card"
           style={{ marginTop: 48, padding: "36px 40px", borderRadius: 20, border: "1px solid rgba(139,92,246,0.12)" }}
         >
           <div style={{ display: "flex", gap: 16, alignItems: "flex-start", flexWrap: "wrap" }}>
@@ -167,7 +167,7 @@ export default function About() {
             }}>
               WD
             </div>
-            <div style={{ flex: 1, minWidth: 280 }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
               <p style={{ fontFamily: "var(--font-space-grotesk)", fontWeight: 700, color: "#f1f5f9", marginBottom: 4 }}>
                 WANKAM Dypue Dilane Junior
               </p>

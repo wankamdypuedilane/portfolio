@@ -22,20 +22,20 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WANKAM Dypue Dilane Junior — DevOps & Cloud Engineer",
+  title: "WANKAM Dypue Dilane Junior — Ingénieur DevOps & Cloud",
   description:
-    "Portfolio of WANKAM Dypue Dilane Junior — DevOps Engineer, Cloud Architect, Backend Developer, and Author of 23 technical books.",
-  keywords: ["DevOps", "Cloud", "AWS", "Docker", "Kubernetes", "Terraform", "Portfolio"],
+    "Portfolio de WANKAM Dypue Dilane Junior — Étudiant ingénieur à l'ENIB, spécialisé DevOps & Cloud, auteur de 23 livres techniques. Disponible en alternance (sept. 2026) et stage ingénieur (fév. 2027).",
+  keywords: ["DevOps", "Cloud", "AWS", "GitHub Actions", "CI/CD", "Kubernetes", "Terraform", "Portfolio", "Alternance", "Stage ingénieur"],
   openGraph: {
-    title: "WANKAM Dypue Dilane Junior",
-    description: "DevOps & Cloud Engineer · Technical Author · Backend Developer",
+    title: "WANKAM Dypue Dilane Junior — Ingénieur DevOps & Cloud",
+    description: "Étudiant ingénieur DevOps/Cloud · Auteur de 23 livres techniques · Disponible sept. 2026",
     type: "website",
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+    <html lang="fr" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
       <body className="noise">
         <CustomCursor />
         {children}

@@ -12,7 +12,7 @@ export default function TechStack() {
   const filtered = active === "Tout" ? SKILLS : SKILLS.filter((s) => s.category === active);
 
   return (
-    <section id="skills" style={{ padding: "120px 20px", position: "relative" }}>
+    <section id="skills" className="section-pad" style={{ padding: "120px 20px", position: "relative" }}>
       {/* Background accent */}
       <div style={{
         position: "absolute", bottom: "10%", left: "-5%",

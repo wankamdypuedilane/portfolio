@@ -38,7 +38,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" style={{ padding: "120px 20px 80px", position: "relative", overflow: "hidden" }}>
+    <section id="contact" className="section-pad" style={{ padding: "120px 20px 80px", position: "relative", overflow: "hidden" }}>
       {/* Background */}
       <div style={{
         position: "absolute", inset: 0,
@@ -66,7 +66,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 32, alignItems: "start" }} className="max-md:grid-cols-1">
+        <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 32, alignItems: "start" }}>
           {/* Left — info */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}

@@ -40,6 +40,7 @@ export default function Hero() {
     <section
       ref={ref}
       id="hero"
+      className="section-pad"
       style={{ position: "relative", minHeight: "100dvh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}
     >
       {/* ── Animated background ── */}
@@ -185,36 +186,36 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Floating tech pills */}
-      {["AWS", "Docker", "Terraform", "Kubernetes", "CI/CD", "Linux"].map((tech, i) => (
-        <motion.div
-          key={tech}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, -8, 0] }}
-          transition={{ delay: 1.5 + i * 0.1, duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
-          className="glass"
-          style={{
-            position: "absolute",
-            fontFamily: "var(--font-jetbrains)",
-            fontSize: "0.65rem",
-            padding: "5px 12px",
-            borderRadius: 999,
-            color: "#64748b",
-            zIndex: 2,
-            display: ["none", "block"][i % 2 === 0 ? 0 : 1],
-            ...[
-              { top: "18%", left: "8%"   },
-              { top: "25%", right: "7%"  },
-              { top: "60%", left: "5%"   },
-              { top: "65%", right: "6%"  },
-              { top: "80%", left: "12%"  },
-              { top: "75%", right: "10%" },
-            ][i],
-          } as React.CSSProperties}
-        >
-          {tech}
-        </motion.div>
-      ))}
+      {/* Floating tech pills — desktop only */}
+      <div className="hidden lg:block" style={{ position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none" }}>
+        {["AWS", "Docker", "Terraform", "Kubernetes", "CI/CD", "Linux"].map((tech, i) => (
+          <motion.div
+            key={tech}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, y: [0, -8, 0] }}
+            transition={{ delay: 1.5 + i * 0.1, duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
+            className="glass"
+            style={{
+              position: "absolute",
+              fontFamily: "var(--font-jetbrains)",
+              fontSize: "0.65rem",
+              padding: "5px 12px",
+              borderRadius: 999,
+              color: "#64748b",
+              ...[
+                { top: "18%", left: "8%"   },
+                { top: "25%", right: "7%"  },
+                { top: "60%", left: "5%"   },
+                { top: "65%", right: "6%"  },
+                { top: "80%", left: "12%"  },
+                { top: "75%", right: "10%" },
+              ][i],
+            } as React.CSSProperties}
+          >
+            {tech}
+          </motion.div>
+        ))}
+      </div>
 
       {/* Scroll indicator */}
       <motion.div

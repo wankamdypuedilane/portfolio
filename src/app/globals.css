@@ -201,6 +201,28 @@ a, button, [role="button"] { cursor: none; }
   transform: perspective(800px) rotateX(-4deg) rotateY(4deg) scale(1.02);
 }
 
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  /* Restore cursor on touch devices */
+  html { cursor: auto !important; }
+  a, button, [role="button"] { cursor: pointer !important; }
+
+  /* Reduce section padding */
+  .section-pad { padding-top: 80px !important; padding-bottom: 80px !important; }
+
+  /* Contact grid → single column */
+  .contact-grid { grid-template-columns: 1fr !important; }
+
+  /* About bio card padding */
+  .bio-card { padding: 24px 16px !important; }
+
+  /* Books Amazon CTA padding */
+  .books-cta { padding: 24px 20px !important; }
+
+  /* Hero badge text wrap */
+  .hero-badge { text-align: center; white-space: normal !important; }
+}
+
 /* ── Noise overlay ── */
 .noise::after {
   content: '';

@@ -11,7 +11,7 @@ export default function Projects() {
   const others   = PROJECTS.filter((p) => !p.featured);
 
   return (
-    <section id="projects" style={{ padding: "120px 20px", position: "relative", overflow: "hidden" }}>
+    <section id="projects" className="section-pad" style={{ padding: "120px 20px", position: "relative", overflow: "hidden" }}>
       <div style={{
         position: "absolute", top: "20%", right: "-8%",
         width: 500, height: 500, borderRadius: "50%",

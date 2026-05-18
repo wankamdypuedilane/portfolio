@@ -19,7 +19,7 @@ export default function Books() {
   const filtered = active === "All" ? BOOKS : BOOKS.filter((b) => b.category === active);
 
   return (
-    <section id="books" style={{ padding: "120px 20px", position: "relative", overflow: "hidden" }}>
+    <section id="books" className="section-pad" style={{ padding: "120px 20px", position: "relative", overflow: "hidden" }}>
       <div style={{
         position: "absolute", top: "5%", left: "-5%",
         width: 600, height: 600, borderRadius: "50%",
@@ -163,7 +163,7 @@ export default function Books() {
           viewport={{ once: true }}
           style={{ marginTop: 56, textAlign: "center" }}
         >
-          <div className="glass" style={{ display: "inline-block", padding: "28px 48px", borderRadius: 20, border: "1px solid rgba(245,158,11,0.15)" }}>
+          <div className="glass books-cta" style={{ display: "inline-block", padding: "28px 48px", borderRadius: 20, border: "1px solid rgba(245,158,11,0.15)" }}>
             <p style={{ fontFamily: "var(--font-space-grotesk)", fontWeight: 700, color: "#f1f5f9", marginBottom: 8 }}>
               Les 23 livres disponibles sur Amazon
             </p>

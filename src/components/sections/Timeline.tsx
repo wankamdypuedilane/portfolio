@@ -22,7 +22,7 @@ type TimelineType = keyof typeof ICONS;
 
 export default function Timeline() {
   return (
-    <section id="journey" style={{ padding: "120px 20px", position: "relative", overflow: "hidden" }}>
+    <section id="journey" className="section-pad" style={{ padding: "120px 20px", position: "relative", overflow: "hidden" }}>
       <div style={{
         position: "absolute", top: "50%", right: "-5%",
         width: 400, height: 400, borderRadius: "50%",
