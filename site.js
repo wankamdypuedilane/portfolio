@@ -7,6 +7,19 @@
   const onScroll = () => nav && nav.classList.toggle('scrolled', scrollY > 20);
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
+  // menu sur téléphone
+  const burger = document.querySelector('.burger');
+  if (nav && burger) {
+    const fermer = () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); burger.setAttribute('aria-label', 'Ouvrir le menu'); };
+    burger.addEventListener('click', () => {
+      const ouvert = nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(ouvert));
+      burger.setAttribute('aria-label', ouvert ? 'Fermer le menu' : 'Ouvrir le menu');
+    });
+    nav.querySelectorAll('nav a').forEach((a) => a.addEventListener('click', fermer));
+    addEventListener('keydown', (e) => { if (e.key === 'Escape') fermer(); });
+  }
+
   // halo qui suit la souris sur les cartes
   document.querySelectorAll('.case-card, .mini, .facts li, .skills > div, .star-step, .meta div, .metrics li').forEach((el) => {
     el.classList.add('spot');
