@@ -312,3 +312,37 @@ code { font-family: ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace; 
   .nav nav a { margin-left: 12px; }
   .term pre { font-size: 10.5px; }
 }
+
+/* ---------- téléphone : boutons alignés, espacements resserrés ---------- */
+@media (max-width: 760px) {
+  .cta, .links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cta .btn, .links .btn { justify-content: center; text-align: center; padding: 13px 12px; width: 100%; }
+  .cta .btn:first-child, .links .btn:first-child { grid-column: 1 / -1; }
+  .links .btn:only-child { grid-column: 1 / -1; }
+  section.wrap { padding-block: 36px; }
+  main.case > section.wrap { padding-block: 18px; }
+  .hero { padding: 44px 0 16px; }
+  .facts { margin-top: 36px; gap: 12px; }
+  .facts li { padding: 16px 18px; }
+  .marquee { margin-top: 32px; }
+  .section-lead { margin-bottom: 24px; font-size: 16px; }
+  .case-card .cc-body { padding: 18px 18px 20px; }
+  .case-card h3 { font-size: 24px; }
+  .timeline li { padding-bottom: 26px; }
+  .contact .box { padding: 36px 18px; border-radius: 22px; }
+  .contact p { margin-bottom: 22px; }
+  .meta { gap: 10px; }
+  .metrics { gap: 10px; }
+  .metrics li { padding: 16px 14px; }
+  .star-step { padding: 20px 18px; }
+  .actions li { padding: 12px 14px 12px 48px; }
+  .actions li::before { left: 14px; top: 12px; }
+  .foot { padding: 24px 18px 40px; }
+}
+@media (max-width: 760px) {
+  .case-hero .links { grid-template-columns: 1fr; }
+  .star-step { grid-template-columns: 44px 1fr; column-gap: 14px; }
+  .star-step > div { grid-column: 1 / -1; }
+  .star-step .letter { width: 44px; height: 44px; font-size: 21px; }
+  .star-step h2 { margin-top: 0; }
+}
