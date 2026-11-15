@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dilane WANKAM · Infrastructure, cloud et sécurité</title>
+<meta name="description" content="Portfolio de Dypue Dilane Junior WANKAM, élève ingénieur à l’INP-ENIB : infrastructure Linux, cloud, Kubernetes, CI/CD et sécurité.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f4e96'/%3E%3Ctext x='32' y='42' font-size='28' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3EDW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#haut">Dilane WANKAM</a>
+    <nav>
+      <a href="#projets">Projets</a>
+      <a href="#competences">Compétences</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="haut">
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Élève ingénieur · INP-ENIB, Brest</p>
+      <h1>Je construis des infrastructures<br>qui tiennent, et je les sécurise.</h1>
+      <p class="lead">Linux, conteneurs, Kubernetes, déploiement continu et sécurité : j’héberge et j’exploite mes propres services, du serveur à la supervision. Je prépare un Mastère en cloud, sécurité et infrastructure.</p>
+      <div class="cta">
+        <a class="btn" href="#projets">Voir les projets</a>
+        <a class="btn ghost" href="https://github.com/wankamdypuedilane">GitHub</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/dypue-dilane-junior-wankam-b70b58303/">LinkedIn</a>
+      </div>
+      <ul class="facts">
+        <li><strong>Kubernetes en production</strong>k3s sur un serveur que j’administre</li>
+        <li><strong>CI/CD sécurisée</strong>dépendances, code et images analysés à chaque modification</li>
+        <li><strong>Exploitation</strong>sauvegardes chiffrées, supervision Prometheus et Grafana</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projets" class="wrap">
+    <h2>Projets phares</h2>
+
+    <article class="project">
+      <div class="p-text">
+        <p class="tag">Infrastructure · haute disponibilité</p>
+        <h3>Dilane Shop</h3>
+        <p>Une boutique en ligne complète (catalogue, panier, paiement Stripe, stocks) que j’héberge et exploite moi-même sur un serveur privé.</p>
+        <ul>
+          <li>Kubernetes léger (k3s) sur un VPS OVH : plusieurs copies de l’application, sondes de santé, mises à jour sans coupure.</li>
+          <li>Exposition HTTPS avec ingress-nginx et des certificats Let’s Encrypt renouvelés automatiquement (cert-manager).</li>
+          <li>Intégration continue qui bloque toute faille : analyse des dépendances (pip-audit), du code (Bandit) et de l’image Docker (Trivy), tests dans l’image, publication sur GHCR.</li>
+          <li>Secrets chiffrés dans le dépôt (SOPS et age), supervision Prometheus et Grafana avec alertes par courriel.</li>
+          <li>Première version sur AWS EC2, créée avec Terraform (projet <a href="https://github.com/wankamdypuedilane/Afrolink">Afrolink</a>).</li>
+        </ul>
+        <div class="chain"><span>GitHub Actions</span><span>GHCR</span><span>k3s · VPS OVH</span><span>ingress-nginx + TLS</span><span>Prometheus · Grafana</span></div>
+        <p class="links"><a href="https://dilane-shop.store/">dilane-shop.store</a><a href="https://github.com/wankamdypuedilane/e-commerce">Code source</a></p>
+      </div>
+      <img class="p-img" src="img/dilane-shop.jpg" alt="Catalogue de la boutique Dilane Shop" loading="lazy">
+    </article>
+
+    <article class="project">
+      <div class="p-text">
+        <p class="tag">Sécurité des données · DevSecOps</p>
+        <h3>Kalinoa</h3>
+        <p>Une application où des professionnels indépendants gèrent leurs rendez-vous, devis et paiements au même endroit.</p>
+        <ul>
+          <li>Isolation des données au niveau de la base : Row-Level Security sur chaque table PostgreSQL, vérifiée par des tests de sécurité automatiques.</li>
+          <li>Contrôles à chaque modification (lint, types, tests, tests de la base) et analyse des dépendances chaque semaine.</li>
+          <li>Sauvegarde de la base chaque nuit, chiffrée en AES-256 avant d’être stockée.</li>
+          <li>Journal d’audit des actions sensibles, que personne ne peut modifier.</li>
+        </ul>
+        <p class="links"><a href="https://kalinoa.com/">kalinoa.com</a><span class="muted">Code privé</span></p>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="p-text">
+        <p class="tag">Administration système · pédagogie</p>
+        <h3>Ziravo</h3>
+        <p>Une application pour apprendre les métiers de l’infrastructure en jouant, avec un terminal Linux simulé et deux parcours : DevOps, et administration système et réseau.</p>
+        <ul>
+          <li>Exercices pratiques d’administration : processus et services systemd, journaux, paquets, partitions et /etc/fstab, LVM, RAID 1, swap, sauvegardes.</li>
+          <li>Parcours DevOps : Git, Docker, CI/CD, Terraform, Kubernetes, supervision, cloud.</li>
+          <li>En production : déploiement continu (GitHub Actions vers Cloudflare Pages), comptes et progression sur Supabase.</li>
+        </ul>
+        <p class="links"><a href="https://app.ziravo.fr/">app.ziravo.fr</a><span class="muted">Code privé</span></p>
+      </div>
+      <img class="p-img phone" src="img/ziravo.jpg" alt="Une leçon de Ziravo sur téléphone" loading="lazy">
+    </article>
+
+    <article class="project">
+      <div class="p-text">
+        <p class="tag">Sécurité de la chaîne logicielle</p>
+        <h3>AI Software Factory</h3>
+        <p>Un outil en ligne de commande qui fait passer un projet de l’idée au code validé, grâce à une suite d’assistants spécialisés (architecture, développement, tests, sécurité, DevOps).</p>
+        <ul>
+          <li>Une validation humaine obligatoire après chaque étape : rien n’avance sans approbation.</li>
+          <li>État du travail enregistré, pour arrêter, inspecter, reprendre ou revenir en arrière.</li>
+          <li>Fiabilité garantie par des centaines de tests automatiques (pytest).</li>
+        </ul>
+        <p class="links"><a href="https://github.com/wankamdypuedilane/ai-software-factory">Code source</a></p>
+      </div>
+    </article>
+  </section>
+
+  <section id="autres" class="wrap">
+    <h2>Autres projets</h2>
+    <div class="grid">
+      <a class="card" href="https://github.com/wankamdypuedilane/EduMaths-Project-Overview"><h4>EduMaths</h4><p>Application éducative mise en production sur AWS EC2 : CI/CD GitHub Actions, HTTPS, fusions uniquement par pull request relue.</p><span>React · Supabase · AWS</span></a>
+      <a class="card" href="https://github.com/wankamdypuedilane/Afrolink"><h4>Afrolink</h4><p>Première version de la boutique, déployée sur AWS EC2 avec une infrastructure décrite en Terraform (instance, groupe de sécurité, IP fixe).</p><span>Django · Terraform · AWS</span></a>
+      <a class="card" href="https://github.com/wankamdypuedilane/ClearHire"><h4>ClearHire</h4><p>Page d’accueil avec liste d’attente, fonction sans serveur pour l’inscription et envoi de courriels.</p><span>Vercel Functions · Brevo</span></a>
+      <a class="card" href="https://github.com/wankamdypuedilane/Emma-FOOD"><h4>Emma Food</h4><p>Application de recettes de cuisine.</p><span>React · Vite · Sass</span></a>
+      <a class="card" href="https://github.com/wankamdypuedilane/Projet-Blog"><h4>Blog</h4><p>Création, modification et filtrage d’articles, avec une API REST.</p><span>JavaScript · Vite</span></a>
+      <a class="card" href="https://github.com/wankamdypuedilane/Listes-de-taches"><h4>Liste de tâches</h4><p>Gestion de tâches quotidiennes.</p><span>React · Vite</span></a>
+      <a class="card" href="https://github.com/wankamdypuedilane/Agence-Immobiliere"><h4>Dilane Immobilier</h4><p>Site vitrine d’agence immobilière, adapté aux téléphones.</p><span>HTML · CSS</span></a>
+      <a class="card" href="https://github.com/wankamdypuedilane/Resto-Camerounais"><h4>Restaurant camerounais</h4><p>Site vitrine d’un restaurant.</p><span>HTML · CSS</span></a>
+      <a class="card" href="https://github.com/wankamdypuedilane/Projet-Snake"><h4>Snake</h4><p>Jeu dans le navigateur : collisions, score, accélération.</p><span>JavaScript · Canvas</span></a>
+      <a class="card" href="https://github.com/wankamdypuedilane/Jeu_du_Morpion"><h4>Morpion</h4><p>Jeu à deux joueurs en console.</p><span>Java</span></a>
+      <a class="card" href="https://github.com/wankamdypuedilane/Jeu_de_devinette"><h4>Jeu de devinette</h4><p>Trouver un mot secret lettre par lettre, en programmation orientée objet.</p><span>Java</span></a>
+    </div>
+    <p class="note">Projets de formation (IBM DevOps and Software Engineering, Coursera) : <a href="https://github.com/wankamdypuedilane/github-final-project">Git et GitHub</a>, <a href="https://github.com/wankamdypuedilane/agile-final-project">méthode agile</a>, <a href="https://github.com/wankamdypuedilane/lab-agile-planning">planification agile</a>, <a href="https://github.com/wankamdypuedilane/LogisticsShippingRates">contribution open source</a>, <a href="https://github.com/wankamdypuedilane/aws-test-project-build">AWS</a>.</p>
+  </section>
+
+  <section id="competences" class="wrap">
+    <h2>Compétences</h2>
+    <div class="skills">
+      <div><h4>Systèmes</h4><p>Linux (administration, services systemd, journaux, paquets), stockage (partitions, LVM, RAID, sauvegardes), Bash</p></div>
+      <div><h4>Cloud et conteneurs</h4><p>Docker, Kubernetes / k3s, VPS OVH, AWS EC2, Terraform, Cloudflare, Supabase, Vercel</p></div>
+      <div><h4>Réseau</h4><p>DNS, HTTPS / TLS, reverse proxy (ingress-nginx), analyse de trafic (Wireshark)</p></div>
+      <div><h4>Sécurité</h4><p>Durcissement, contrôle d’accès aux données, CI/CD sécurisée (pip-audit, Bandit, Trivy, npm audit), gestion des secrets (SOPS), OWASP, OSINT</p></div>
+      <div><h4>Exploitation</h4><p>GitHub Actions, supervision Prometheus et Grafana, alertes, sauvegardes chiffrées, tests automatisés</p></div>
+      <div><h4>Développement</h4><p>Python, TypeScript, Java, SQL, C++ · Django, Next.js, Spring Boot · PostgreSQL</p></div>
+    </div>
+  </section>
+
+  <section id="parcours" class="wrap">
+    <h2>Parcours</h2>
+    <ol class="timeline">
+      <li><span class="when">2027</span><div><h4>Candidature au Mastère Expert en Cloud, Sécurité &amp; Infrastructure</h4><p>Pour approfondir le réseau, l’architecture cloud et la gouvernance de la sécurité. Ouvert à l’alternance.</p></div></li>
+      <li><span class="when">2026</span><div><h4>Cybersécurité pratique</h4><p>CTF académique (OSINT, sécurité web, DNS) et entraînement sur Root-Me (Wireshark, hashcat).</p></div></li>
+      <li><span class="when">2025 - 2027</span><div><h4>Cycle ingénieur, INP-ENIB (Brest)</h4><p>Informatique et électronique. Cybersécurité, méthodologie des systèmes d’information, intelligence artificielle.</p></div></li>
+      <li><span class="when">2025</span><div><h4>Stage assistant ingénieur, ENIB</h4><p>Simulation temps réel d’une corde de guitare en C++ et Python, moins de 10 ms de latence visée.</p></div></li>
+      <li><span class="when">Avant</span><div><h4>Licence en mécatronique, École Polytechnique de Yaoundé</h4><p>Électronique, mécanique, automatisme et informatique industrielle. Mention Bien. Puis passage au développement logiciel, au DevOps et au cloud.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="contact" class="wrap contact">
+    <h2>Contact</h2>
+    <p>Une question sur un projet, une offre d’alternance ou de stage ?</p>
+    <div class="cta">
+      <a class="btn" href="mailto:d25wankam@enib.fr">d25wankam@enib.fr</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/dypue-dilane-junior-wankam-b70b58303/">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/wankamdypuedilane">GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot">Dypue Dilane Junior WANKAM · Brest</footer>
+</body>
+</html>
