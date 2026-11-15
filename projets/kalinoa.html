@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalinoa · étude de cas · Dilane WANKAM</title>
+<meta name="description" content="Kalinoa : une application de rendez-vous et de paiements pour indépendants, où la base de données elle-même empêche un professionnel de voir les données d’un autre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#070b1a">
+<script src="../site.js" defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f4e96'/%3E%3Ctext x='32' y='42' font-size='28' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3EDW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="bg-fx" aria-hidden="true"><i></i><i></i><i></i></div>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="../">Dilane WANKAM</a>
+    <nav>
+      <a href="../#projets">Projets</a>
+      <a href="../#competences">Compétences</a>
+      <a href="../#parcours">Parcours</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="case">
+  <section class="case-hero wrap">
+    <a class="back" href="../#projets">← Tous les projets</a>
+    <p class="tag">Étude de cas · sécurité des données et DevSecOps</p>
+    <h1>Kalinoa</h1>
+    <p class="lead">Une application de rendez-vous, de devis et de paiements pour les indépendants, où c’est la base de données elle-même qui empêche un professionnel de voir les clients d’un autre. Chaque règle est vérifiée par des tests, à chaque modification.</p>
+    <div class="meta">
+      <div><span>Rôle</span>Fondateur et seul développeur : produit, code, base de données, exploitation</div>
+      <div><span>Période</span>Depuis octobre 2026</div>
+      <div><span>Technique</span>Next.js, TypeScript, Supabase (PostgreSQL), Vercel, GitHub Actions</div>
+    </div>
+    <p class="links"><a class="btn" href="https://kalinoa.com/">Voir le site en ligne</a></p>
+  </section>
+
+  <section class="wrap">
+    <ul class="metrics">
+      <li><strong>1 798</strong>vérifications de sécurité de la base, à chaque modification</li>
+      <li><strong>299</strong>tests des règles métier</li>
+      <li><strong>116</strong>migrations SQL versionnées</li>
+      <li><strong>Chaque nuit</strong>une sauvegarde chiffrée en AES-256, 30 jours gardés</li>
+    </ul>
+  </section>
+
+  <section class="wrap">
+    <figure class="video">
+      <video src="../img/kalinoa/demo.mp4" poster="../img/kalinoa/demo-poster.jpg" controls muted playsinline loop preload="none"></video>
+      <figcaption>La présentation de Kalinoa, puis la page d’accueil, en français.</figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap star">
+    <div class="star-step"><span class="letter">S</span><div><h2>Situation</h2>
+      <p>Les coiffeuses, coachs ou artisans indépendants gèrent leurs rendez-vous sur WhatsApp : deux clients au même créneau, des rendez-vous manqués sans acompte, et des numéros personnels qui circulent.</p>
+      <p>Kalinoa est né d’un projet de cours, que j’ai décidé de transformer en vrai service, ouvert au public.</p>
+    </div></div>
+    <div class="star-step"><span class="letter">T</span><div><h2>Tâche</h2>
+      <p>Construire une application où des professionnels confient les données de leurs clients. La protection de ces données ne pouvait pas reposer sur l’interface seule : un professionnel ne doit jamais voir les données d’un autre, même si le code de l’interface a un bug.</p>
+      <p>Le tout en restant utilisable sur un téléphone Android avec une connexion instable, et dans plusieurs langues.</p>
+    </div></div>
+    <div class="star-step"><span class="letter">A</span><div><h2>Actions</h2>
+      <ol class="actions">
+        <li><strong>Protéger au niveau de la base.</strong> Row-Level Security sur chaque table PostgreSQL : c’est la base qui vérifie, à chaque requête, à qui appartient la donnée. La structure évolue par migrations SQL versionnées, 116 à ce jour.</li>
+        <li><strong>Tester la sécurité comme le reste.</strong> Chaque nouvelle table arrive avec ses tests. 1 798 vérifications sont rejouées sur un vrai PostgreSQL embarqué qui simule les rôles de Supabase : visiteur anonyme, professionnel, client.</li>
+        <li><strong>Contrôler chaque modification.</strong> Une pull request par ticket. Avant toute fusion : lint, types, 299 tests des règles métier, tests de sécurité de la base, construction de production. npm audit bloque les failles graves, sur chaque pull request et chaque lundi.</li>
+        <li><strong>Limiter ce qui circule.</strong> Pro et client ne s’échangent ni numéro ni e-mail : ils se parlent dans Kalinoa. Les liens publics utilisent des identifiants impossibles à deviner. Aucune clé secrète dans le code ni dans le dépôt.</li>
+        <li><strong>Pouvoir revenir en arrière.</strong> Chaque nuit, une copie complète de la base (rôles, structure, données), chiffrée en AES-256 avant d’être stockée, gardée 30 jours, avec une procédure de restauration écrite. Les actions sensibles sont notées dans un journal d’audit que personne ne peut modifier.</li>
+        <li><strong>Documenter les choix.</strong> Une fiche par module, et chaque décision structurante consignée avec sa raison : 179 à ce jour.</li>
+      </ol>
+    </div></div>
+    <div class="star-step"><span class="letter">R</span><div><h2>Résultats</h2>
+      <ul class="results">
+        <li>L’application est en ligne sur <a href="https://kalinoa.com/">kalinoa.com</a>, sur téléphone et ordinateur, en français, en anglais et en arabe.</li>
+        <li>Un bug dans l’interface ne suffit pas à exposer les données d’un autre professionnel : la base refuse.</li>
+        <li>Aucune modification n’est fusionnée sans que les 1 798 vérifications de sécurité passent.</li>
+        <li>Plus de 300 tickets et pull requests, et 179 décisions documentées : le projet peut être repris par quelqu’un d’autre.</li>
+      </ul>
+      <p class="lesson"><strong>Ce que j’en retiens.</strong> Une règle de sécurité qu’on n’a pas testée n’est qu’une hypothèse. C’est pour ça qu’aucune table n’arrive dans Kalinoa sans les tests qui prouvent qui peut la lire et la modifier.</p>
+    </div></div>
+  </section>
+
+  <section class="wrap">
+    <h2>Architecture</h2>
+    <figure class="diagram"><img src="../img/kalinoa/architecture.svg" alt="Schéma : chaque pull request passe des contrôles (tests, 1 798 vérifications de sécurité, npm audit), l’application Next.js est déployée sur Vercel, les données sont dans Supabase protégées par la Row-Level Security, et une sauvegarde chiffrée est faite chaque nuit." loading="lazy"></figure>
+  </section>
+
+  <section class="wrap">
+    <h2>En images</h2>
+    <div class="gallery">
+      <figure class="wide"><img src="../img/kalinoa/accueil.jpg" alt="La page d’accueil de Kalinoa" loading="lazy"><figcaption>L’accueil, avec un aperçu de l’espace du professionnel.</figcaption></figure>
+      <figure><img src="../img/kalinoa/decouvrir.jpg" alt="La présentation de Kalinoa" loading="lazy"><figcaption>La présentation : le problème des rendez-vous sur WhatsApp.</figcaption></figure>
+      <figure class="phone-half"><img src="../img/kalinoa/mobile.jpg" alt="Kalinoa sur téléphone" loading="lazy"><figcaption>Conçu d’abord pour le téléphone.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="wrap next">
+    <div class="pager">
+      <a class="btn ghost" href="dilane-shop.html">← Dilane Shop</a>
+      <a class="btn ghost" href="ziravo.html">Ziravo →</a>
+    </div>
+  </section>
+</main>
+<footer class="wrap foot">Dypue Dilane Junior WANKAM · Brest</footer>
+</body>
+</html>

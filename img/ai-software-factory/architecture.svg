@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" role="img" aria-label="Fonctionnement d'AI Software Factory : huit agents IA proposent, le moteur vérifie avec des preuves (tests exécutés, commandes autorisées, copie isolée, nombre d'essais limité), et un humain valide chaque porte. L'état du projet est enregistré dans un fichier.">
+  <defs>
+    <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f4e96"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#c9d3e3;stroke-width:1.5}
+      .zone{fill:#f3f6fb;stroke:#1f4e96;stroke-width:1.5;stroke-dasharray:5 4}
+      .t{font-size:15px;font-weight:700;fill:#16202e}
+      .tc{font-size:14px;font-weight:700;fill:#16202e;text-anchor:middle}
+      .s{font-size:12.5px;fill:#5b6676}
+      .z{font-size:13px;font-weight:700;fill:#1f4e96;letter-spacing:.4px}
+      .a{stroke:#1f4e96;stroke-width:2;fill:none;marker-end:url(#fl)}
+      .ok{fill:#e8f5ee;stroke:#2e8b57}
+      .gate{fill:#fff4e5;stroke:#c77700;stroke-width:1.5}
+    </style>
+  </defs>
+
+  <rect class="zone" x="10" y="10" width="940" height="128" rx="16"/>
+  <text class="z" x="28" y="36">1 · LES AGENTS IA PROPOSENT</text>
+  <g>
+    <rect class="box" x="30" y="52" width="100" height="40" rx="10"/><text class="tc" x="80" y="77">Produit</text>
+    <rect class="box" x="146" y="52" width="100" height="40" rx="10"/><text class="tc" x="196" y="77">UX/UI</text>
+    <rect class="box" x="262" y="52" width="100" height="40" rx="10"/><text class="tc" x="312" y="77">Architecte</text>
+    <rect class="box" x="378" y="52" width="100" height="40" rx="10"/><text class="tc" x="428" y="77">Développeur</text>
+    <rect class="box" x="494" y="52" width="100" height="40" rx="10"/><text class="tc" x="544" y="77">QA</text>
+    <rect class="box" x="610" y="52" width="100" height="40" rx="10"/><text class="tc" x="660" y="77">Sécurité</text>
+    <rect class="box" x="726" y="52" width="100" height="40" rx="10"/><text class="tc" x="776" y="77">DevOps</text>
+    <rect class="box" x="842" y="52" width="88" height="40" rx="10"/><text class="tc" x="886" y="77">SRE</text>
+  </g>
+  <text class="s" x="30" y="120">Chaque agent rend un résultat structuré (JSON à schéma strict) : ce qu’il a fait, les commandes à lancer, les défauts trouvés.</text>
+
+  <path class="a" d="M480,138 V166"/>
+
+  <rect class="zone" x="10" y="170" width="940" height="160" rx="16"/>
+  <text class="z" x="28" y="196">2 · LE MOTEUR VÉRIFIE, AVEC DES PREUVES</text>
+  <rect class="box" x="30" y="210" width="214" height="104" rx="12"/>
+  <text class="t" x="46" y="234">Résultat contrôlé</text>
+  <text class="s" x="46" y="256">schéma respecté, fichiers</text>
+  <text class="s" x="46" y="274">attendus présents, aucun</text>
+  <text class="s" x="46" y="292">défaut grave non résolu</text>
+  <rect class="box" x="258" y="210" width="214" height="104" rx="12"/>
+  <text class="t" x="274" y="234">Tests vraiment lancés</text>
+  <text class="s" x="274" y="256">l’étape réussit si les tests</text>
+  <text class="s" x="274" y="274">passent, pas parce que</text>
+  <text class="s" x="274" y="292">l’agent l’affirme</text>
+  <rect class="box" x="486" y="210" width="214" height="104" rx="12"/>
+  <text class="t" x="502" y="234">Commandes encadrées</text>
+  <text class="s" x="502" y="256">listes de commandes autorisées,</text>
+  <text class="s" x="502" y="274">code écrit dans une copie isolée,</text>
+  <text class="s" x="502" y="292">appliqué seulement s’il passe</text>
+  <rect class="box" x="714" y="210" width="216" height="104" rx="12"/>
+  <text class="t" x="730" y="234">Essais limités</text>
+  <text class="s" x="730" y="256">2 ou 3 nouvelles tentatives au</text>
+  <text class="s" x="730" y="274">plus : jamais de boucle qui</text>
+  <text class="s" x="730" y="292">consomme des appels payants</text>
+
+  <path class="a" d="M480,330 V358"/>
+
+  <rect class="zone" x="10" y="362" width="620" height="98" rx="16"/>
+  <text class="z" x="28" y="388">3 · UN HUMAIN DÉCIDE</text>
+  <rect class="gate" x="30" y="398" width="580" height="50" rx="12"/>
+  <text class="t" x="46" y="419">9 portes de validation</text>
+  <text class="s" x="46" y="438">rien n’avance sans « approve », que la Factory ne peut pas donner à ta place</text>
+
+  <rect class="box ok" x="650" y="362" width="300" height="98" rx="16"/>
+  <text class="t" x="668" y="388">État du projet dans un fichier</text>
+  <text class="s" x="668" y="410">.factory/state.yaml : on peut arrêter,</text>
+  <text class="s" x="668" y="428">inspecter, reprendre ou revenir</text>
+  <text class="s" x="668" y="446">à un point de sauvegarde</text>
+</svg>

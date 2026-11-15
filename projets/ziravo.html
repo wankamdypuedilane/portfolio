@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ziravo · étude de cas · Dilane WANKAM</title>
+<meta name="description" content="Ziravo : une application pour apprendre les métiers de la tech en jouant, avec un terminal Linux simulé dans le navigateur et 5 662 exercices vérifiés à chaque modification.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#070b1a">
+<script src="../site.js" defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f4e96'/%3E%3Ctext x='32' y='42' font-size='28' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3EDW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="bg-fx" aria-hidden="true"><i></i><i></i><i></i></div>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="../">Dilane WANKAM</a>
+    <nav>
+      <a href="../#projets">Projets</a>
+      <a href="../#competences">Compétences</a>
+      <a href="../#parcours">Parcours</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="case">
+  <section class="case-hero wrap">
+    <a class="back" href="../#projets">← Tous les projets</a>
+    <p class="tag">Étude de cas · simulation Linux et intégration continue</p>
+    <h1>Ziravo</h1>
+    <p class="lead">Une application pour apprendre les métiers de la tech en jouant, comme on apprend une langue. On tape de vraies commandes dans un terminal simulé, directement dans le navigateur : rien à installer, aucun serveur à casser.</p>
+    <div class="meta">
+      <div><span>Rôle</span>Seul sur le projet : idée, contenu, moteur de simulation, infrastructure</div>
+      <div><span>Période</span>Depuis novembre 2026</div>
+      <div><span>Technique</span>TypeScript, Expo (React Native Web), Supabase, GitHub Actions, Cloudflare Pages</div>
+    </div>
+    <p class="links"><a class="btn" href="https://app.ziravo.fr/">Essayer l’application</a><a class="btn ghost" href="https://ziravo.fr/">Le site</a></p>
+  </section>
+
+  <section class="wrap">
+    <ul class="metrics">
+      <li><strong>539</strong>leçons en ligne, en 12 mondes</li>
+      <li><strong>2 685</strong>commandes à taper dans le terminal simulé</li>
+      <li><strong>5 662</strong>exercices rejoués à chaque modification</li>
+      <li><strong>0</strong>exercice cassé toléré : la CI bloque</li>
+    </ul>
+  </section>
+
+  <section class="wrap">
+    <figure class="video portrait">
+      <video src="../img/ziravo/demo.mp4" poster="../img/ziravo/demo-poster.jpg" controls muted playsinline loop preload="none"></video>
+      <figcaption><strong>Un secret dans le dépôt Git.</strong><br>Bug a glissé le mot de passe de la base dans un commit. Le joueur remonte l’histoire avec <code>git log</code>, trouve le fichier avec <code>cat config.json</code>, l’ajoute au <code>.gitignore</code>, puis découvre avec <code>git status</code> que ça ne suffit pas : le fichier est toujours suivi. Chaque commande est vraiment exécutée par le terminal simulé.</figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap star">
+    <div class="star-step"><span class="letter">S</span><div><h2>Situation</h2>
+      <p>Pour apprendre l’administration système, il faut un serveur. Les débutants n’en ont pas, ont peur de casser quelque chose, et les cours en vidéo restent passifs : on regarde quelqu’un taper des commandes, on ne les tape pas.</p>
+      <p>Je voulais l’équivalent d’une application de langues pour les métiers de la tech : quelques minutes par jour, sur téléphone, en pratiquant pour de vrai.</p>
+    </div></div>
+    <div class="star-step"><span class="letter">T</span><div><h2>Tâche</h2>
+      <p>Simuler de façon crédible un serveur Linux, et les outils qui tournent dessus, entièrement dans le navigateur. Chaque leçon devait partir d’une vraie situation de travail, comme une panne à réparer.</p>
+      <p>Et garantir que le contenu reste juste en grandissant : avec des milliers d’exercices, une seule modification du moteur peut casser une leçon écrite des semaines plus tôt.</p>
+    </div></div>
+    <div class="star-step"><span class="letter">A</span><div><h2>Actions</h2>
+      <ol class="actions">
+        <li><strong>Écrire le moteur de simulation.</strong> Un terminal en TypeScript : le shell et ses fichiers, les droits, les processus et les signaux, systemd et le journal, les paquets, les disques (partitions, montage, fstab, LVM, RAID), Docker, Git, Kubernetes, et des clouds simulés. Chaque leçon démarre d’un état préparé : un service arrêté, un disque plein, un fstab cassé.</li>
+        <li><strong>Apprendre par les incidents.</strong> Chaque chapitre est une journée de travail qui se termine par un incident à résoudre dans le terminal. On apprend une commande parce qu’on en a besoin, pas pour la réciter.</li>
+        <li><strong>Tester le contenu comme du code.</strong> Un script rejoue chaque exercice : la commande de référence doit être acceptée par le terminal simulé, et chaque identifiant de leçon doit être unique. D’autres contrôles vérifient le test de positionnement et l’équilibre de la monnaie du jeu.</li>
+        <li><strong>Automatiser la publication.</strong> À chaque push, GitHub Actions vérifie les types et le lint, rejoue les 5 662 exercices, construit l’application web et le site vitrine, puis les publie sur Cloudflare Pages. Si un seul exercice casse, rien ne part.</li>
+        <li><strong>Protéger les comptes.</strong> Supabase garde les comptes et la progression, avec la Row-Level Security : chacun ne lit que ses données. La suppression de compte et la purge des comptes invités sont automatiques. L’abonnement passe par Stripe, traité par des fonctions serveur qui vérifient la signature du webhook.</li>
+        <li><strong>Penser au téléphone d’abord.</strong> Une application web qui tient sur un petit écran, avec des commandes à toucher pour aider à taper, et une mise en page à trois colonnes sur ordinateur.</li>
+      </ol>
+    </div></div>
+    <div class="star-step"><span class="letter">R</span><div><h2>Résultats</h2>
+      <ul class="results">
+        <li>L’application est en ligne sur <a href="https://app.ziravo.fr/">app.ziravo.fr</a>, avec deux parcours ouverts : DevOps, et Admin système et réseau.</li>
+        <li>539 leçons et 5 662 exercices, dont 2 685 commandes à taper dans le terminal simulé.</li>
+        <li>Chaque modification rejoue tous les exercices : un monde entier peut être ajouté sans casser les précédents.</li>
+        <li>Le site vitrine calcule ses chiffres directement depuis les leçons : ils ne peuvent pas être faux.</li>
+      </ul>
+      <p class="lesson"><strong>Ce que j’en retiens.</strong> Pour simuler Linux, il faut savoir exactement comment il se comporte : un fichier qui disparaît quand on monte un disque par-dessus, un <code>umount</code> refusé parce qu’on est dans le dossier. Écrire le simulateur m’a appris le système plus en profondeur que de simplement l’utiliser.</p>
+    </div></div>
+  </section>
+
+  <section class="wrap">
+    <h2>Architecture</h2>
+    <figure class="diagram"><img src="../img/ziravo/architecture.svg" alt="Schéma : à chaque push, GitHub Actions vérifie les types et rejoue les 5 662 exercices, puis publie sur Cloudflare Pages. Le terminal simulé tourne dans le navigateur. Supabase garde les comptes avec la Row-Level Security, et Stripe est traité par des fonctions serveur." loading="lazy"></figure>
+  </section>
+
+  <section class="wrap">
+    <h2>En images</h2>
+    <div class="gallery">
+      <figure class="wide"><img src="../img/ziravo/bureau.jpg" alt="Ziravo sur ordinateur : le monde Kubernetes, le menu et les quêtes du jour" loading="lazy"><figcaption>Sur ordinateur : le monde Kubernetes du parcours DevOps, organisé en chapitres, avec les quêtes du jour.</figcaption></figure>
+      <figure class="wide"><img src="../img/ziravo/lecon.jpg" alt="Une leçon avec le terminal simulé" loading="lazy"><figcaption>Une leçon : la commande tapée, la réponse du cluster simulé, puis l’explication.</figcaption></figure>
+      <figure><img src="../img/ziravo/mondes.jpg" alt="La liste des mondes du parcours DevOps" loading="lazy"><figcaption>Le parcours DevOps : Git, Docker, CI/CD, Terraform, Kubernetes, supervision, cloud.</figcaption></figure>
+      <figure><img src="../img/ziravo/terminal.jpg" alt="kubectl exec dans le terminal simulé : la page /sante répond 404" loading="lazy"><figcaption>La sonde demande /sante : l’API répond 404, alors qu’elle va très bien.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="wrap next">
+    <div class="pager">
+      <a class="btn ghost" href="kalinoa.html">← Kalinoa</a>
+      <a class="btn ghost" href="ai-software-factory.html">AI Software Factory →</a>
+    </div>
+  </section>
+</main>
+<footer class="wrap foot">Dypue Dilane Junior WANKAM · Brest</footer>
+</body>
+</html>

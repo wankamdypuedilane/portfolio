@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" role="img" aria-label="Architecture de Dilane Shop : de la modification du code jusqu'à la production sur k3s">
+  <defs>
+    <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f4e96"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#c9d3e3;stroke-width:1.5;rx:12}
+      .zone{fill:#f3f6fb;stroke:#1f4e96;stroke-width:1.5;stroke-dasharray:5 4}
+      .t{font-size:15px;font-weight:700;fill:#16202e}
+      .s{font-size:12.5px;fill:#5b6676}
+      .z{font-size:13px;font-weight:700;fill:#1f4e96;letter-spacing:.4px}
+      .a{stroke:#1f4e96;stroke-width:2;fill:none;marker-end:url(#fl)}
+      .ok{fill:#e8f5ee;stroke:#2e8b57}
+    </style>
+  </defs>
+
+  <!-- intégration continue -->
+  <rect class="zone" x="10" y="10" width="300" height="450" rx="16"/>
+  <text class="z" x="28" y="36">INTÉGRATION CONTINUE · GITHUB</text>
+  <rect class="box" x="30" y="52" width="260" height="56" rx="12"/>
+  <text class="t" x="46" y="76">Pull request</text>
+  <text class="s" x="46" y="96">chaque modification du code</text>
+  <rect class="box" x="30" y="128" width="260" height="196" rx="12"/>
+  <text class="t" x="46" y="152">GitHub Actions (CI)</text>
+  <text class="s" x="46" y="176">1. pip-audit : failles des dépendances</text>
+  <text class="s" x="46" y="198">2. Bandit : analyse du code</text>
+  <text class="s" x="46" y="220">3. Image Docker multi-étapes</text>
+  <text class="s" x="46" y="242">4. Trivy : failles de l’image</text>
+  <text class="s" x="46" y="264">5. Tests et couverture (seuil 76 %)</text>
+  <text class="s" x="46" y="286">6. Test de démarrage du conteneur</text>
+  <text class="s" x="46" y="308">Une seule faille = mise en ligne bloquée</text>
+  <rect class="box" x="30" y="344" width="260" height="56" rx="12"/>
+  <text class="t" x="46" y="368">GHCR</text>
+  <text class="s" x="46" y="388">image publiée, repérée par son commit</text>
+  <rect class="box ok" x="30" y="414" width="260" height="34" rx="10"/>
+  <text class="s" x="46" y="436">Secrets chiffrés : SOPS + age</text>
+  <path class="a" d="M160 108 V126"/>
+  <path class="a" d="M160 324 V342"/>
+
+  <!-- production -->
+  <rect class="zone" x="350" y="10" width="600" height="450" rx="16"/>
+  <text class="z" x="368" y="36">PRODUCTION · VPS OVH · KUBERNETES k3s</text>
+  <rect class="box" x="370" y="52" width="260" height="70" rx="12"/>
+  <text class="t" x="386" y="76">ingress-nginx</text>
+  <text class="s" x="386" y="96">HTTPS, certificat Let’s Encrypt</text>
+  <text class="s" x="386" y="113">renouvelé par cert-manager</text>
+  <rect class="box" x="370" y="150" width="260" height="96" rx="12"/>
+  <text class="t" x="386" y="174">Application Django</text>
+  <text class="s" x="386" y="196">plusieurs copies (réplicas)</text>
+  <text class="s" x="386" y="216">sondes de santé, mise à jour</text>
+  <text class="s" x="386" y="234">progressive sans coupure</text>
+  <rect class="box" x="370" y="274" width="260" height="70" rx="12"/>
+  <text class="t" x="386" y="298">PostgreSQL 17</text>
+  <text class="s" x="386" y="318">volume persistant</text>
+  <rect class="box ok" x="370" y="370" width="260" height="70" rx="12"/>
+  <text class="t" x="386" y="394">Sauvegarde automatique</text>
+  <text class="s" x="386" y="414">chaque nuit à 3 h, 7 jours gardés</text>
+  <rect class="box" x="670" y="150" width="260" height="96" rx="12"/>
+  <text class="t" x="686" y="174">Prometheus + Grafana</text>
+  <text class="s" x="686" y="196">latence, trafic, erreurs, saturation</text>
+  <text class="s" x="686" y="216">/metrics jamais exposé</text>
+  <text class="s" x="686" y="234">sur Internet</text>
+  <rect class="box ok" x="670" y="274" width="260" height="70" rx="12"/>
+  <text class="t" x="686" y="298">Alertes par courriel</text>
+  <text class="s" x="686" y="318">site indisponible, taux d’erreur</text>
+  <rect class="box" x="670" y="52" width="260" height="70" rx="12"/>
+  <text class="t" x="686" y="76">Visiteurs</text>
+  <text class="s" x="686" y="96">dilane-shop.store</text>
+  <path class="a" d="M670 87 H632"/>
+  <path class="a" d="M500 122 V148"/>
+  <path class="a" d="M500 246 V272"/>
+  <path class="a" d="M500 344 V368"/>
+  <path class="a" d="M630 198 H668"/>
+  <path class="a" d="M800 246 V272"/>
+  <path class="a" d="M290 372 H322 Q330 372 330 364 V206 Q330 198 338 198 H368"/>
+  <text x="344" y="285" font-size="11" fill="#1f4e96" font-weight="600" text-anchor="middle" transform="rotate(-90 344 285)">déploiement</text>
+</svg>

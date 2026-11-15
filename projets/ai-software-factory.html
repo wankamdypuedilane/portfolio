@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Software Factory · étude de cas · Dilane WANKAM</title>
+<meta name="description" content="AI Software Factory : un outil qui fait passer un projet de l’idée au code validé avec huit agents IA spécialisés, où rien n’avance sans preuve ni sans validation humaine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#070b1a">
+<script src="../site.js" defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f4e96'/%3E%3Ctext x='32' y='42' font-size='28' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3EDW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="bg-fx" aria-hidden="true"><i></i><i></i><i></i></div>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="../">Dilane WANKAM</a>
+    <nav>
+      <a href="../#projets">Projets</a>
+      <a href="../#competences">Compétences</a>
+      <a href="../#parcours">Parcours</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="case">
+  <section class="case-hero wrap">
+    <a class="back" href="../#projets">← Tous les projets</a>
+    <p class="tag">Étude de cas · IA encadrée et qualité logicielle</p>
+    <h1>AI Software Factory</h1>
+    <p class="lead">Un outil qui fait passer un projet de l’idée au code validé avec huit agents IA spécialisés : produit, design, architecture, code, tests, sécurité, livraison, fiabilité. L’IA propose, le moteur vérifie avec des preuves, et un humain valide chaque étape.</p>
+    <div class="meta">
+      <div><span>Rôle</span>Seul sur le projet : conception, code, tests, documentation</div>
+      <div><span>Période</span>Octobre 2026</div>
+      <div><span>Technique</span>Python, API OpenAI (sorties JSON à schéma strict), pytest, GitHub Actions</div>
+    </div>
+    <p class="links"><a class="btn" href="https://github.com/wankamdypuedilane/ai-software-factory">Code source et documentation</a></p>
+  </section>
+
+  <section class="wrap">
+    <ul class="metrics">
+      <li><strong>8</strong>agents spécialisés, un par métier</li>
+      <li><strong>9</strong>portes de validation humaine</li>
+      <li><strong>1 314</strong>tests automatiques</li>
+      <li><strong>2 × 2</strong>systèmes (Linux, Windows) et versions de Python testés</li>
+    </ul>
+  </section>
+
+  <section class="wrap">
+    <figure class="video">
+      <video src="../img/ai-software-factory/demo.mp4" poster="../img/ai-software-factory/demo-poster.jpg" controls muted playsinline loop preload="none"></video>
+      <figcaption>L’interface web, en mode démo (sans IA ni clé) : on décrit son idée, puis on valide chaque étape jusqu’au projet terminé. Vidéo accélérée.</figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap star">
+    <div class="star-step"><span class="letter">S</span><div><h2>Situation</h2>
+      <p>Les assistants d’IA écrivent du code très vite, mais on ne sait pas toujours ce qu’ils ont vraiment fait. Un agent peut annoncer « tests réussis » sans les avoir lancés, proposer une commande dangereuse, ou réessayer en boucle et consommer des appels payants.</p>
+    </div></div>
+    <div class="star-step"><span class="letter">T</span><div><h2>Tâche</h2>
+      <p>Construire un outil qui mène un projet logiciel de l’idée jusqu’au code prêt pour la production, avec une équipe d’agents IA, sans jamais faire confiance à ce qu’un agent affirme : seules les preuves comptent, et c’est un humain qui décide.</p>
+      <p>L’outil devait aussi pouvoir s’arrêter et reprendre à tout moment, et fonctionner avec plusieurs fournisseurs d’IA.</p>
+    </div></div>
+    <div class="star-step"><span class="letter">A</span><div><h2>Actions</h2>
+      <ol class="actions">
+        <li><strong>Découper le travail en métiers.</strong> Huit agents, chacun avec un contrat écrit : ce qu’il reçoit, ce qu’il doit rendre, ce qu’il n’a pas le droit de faire. Ils travaillent tous à partir du même contexte de projet.</li>
+        <li><strong>Exiger des résultats vérifiables.</strong> Chaque agent rend un résultat structuré, en JSON à schéma strict. Le moteur le contrôle avant de l’accepter.</li>
+        <li><strong>Décider sur les preuves.</strong> Une étape ne réussit que si les tests et les contrôles ont vraiment été exécutés et sont passés, et si aucun défaut critique ou élevé n’est resté ouvert. Ce que l’agent déclare ne suffit pas.</li>
+        <li><strong>Encadrer ce que l’IA exécute.</strong> Les commandes proposées sont filtrées par des listes d’autorisation. Le code est écrit dans une copie isolée du projet, puis appliqué seulement si tout passe. Le nombre de nouvelles tentatives est limité, pour qu’aucune boucle ne consomme d’appels payants sans fin.</li>
+        <li><strong>Garder l’humain aux commandes.</strong> Neuf portes de validation : rien ne passe à l’étape suivante sans une approbation humaine, que l’outil ne peut pas enregistrer lui-même. Un défaut trouvé par la QA ou la sécurité renvoie le travail au développeur et rouvre les validations suivantes.</li>
+        <li><strong>Rendre l’outil sûr à utiliser.</strong> L’état complet du projet tient dans un fichier : on peut arrêter, reprendre ou revenir à un point de sauvegarde. L’interface web n’écoute que sur la machine et refuse les requêtes venant d’autres sites ; la clé d’API est stockée lisible par son seul propriétaire.</li>
+      </ol>
+    </div></div>
+    <div class="star-step"><span class="letter">R</span><div><h2>Résultats</h2>
+      <ul class="results">
+        <li>Un outil en ligne de commande et une interface web en français, utilisables par un développeur comme par quelqu’un qui ne code pas.</li>
+        <li>Un mode démo hors ligne fait tourner tout le parcours sans clé ni coût, et sert aux tests.</li>
+        <li>1 314 tests automatiques, rejoués à chaque modification sur Linux et Windows, avec Python 3.11 et 3.13.</li>
+        <li>Toute la conception est documentée : contrat de chaque agent, protocole entre agents, audit des boucles de nouvelles tentatives.</li>
+      </ul>
+      <p class="lesson"><strong>Ce que j’en retiens.</strong> « L’IA propose, le moteur vérifie, les preuves décident. » Plus un outil est autonome, plus ses garde-fous doivent être explicites et testés : c’est la même logique qu’une chaîne d’intégration continue.</p>
+    </div></div>
+  </section>
+
+  <section class="wrap">
+    <h2>Architecture</h2>
+    <figure class="diagram"><img src="../img/ai-software-factory/architecture.svg" alt="Schéma : huit agents IA proposent un résultat structuré ; le moteur vérifie le résultat, lance vraiment les tests, filtre les commandes, travaille dans une copie isolée et limite les nouvelles tentatives ; un humain valide neuf portes ; l’état du projet est enregistré dans un fichier." loading="lazy"></figure>
+  </section>
+
+  <section class="wrap">
+    <h2>En images</h2>
+    <div class="gallery">
+      <figure class="wide"><img src="../img/ai-software-factory/cli.jpg" alt="Une session en ligne de commande : une approbation dans le désordre est refusée, puis 1 314 tests passent" loading="lazy"><figcaption>En ligne de commande : impossible de valider une étape qui n’est pas prête. Et les 1 314 tests.</figcaption></figure>
+      <figure><img src="../img/ai-software-factory/formulaire.jpg" alt="Le formulaire de nouveau projet" loading="lazy"><figcaption>On décrit son idée avec ses mots.</figcaption></figure>
+      <figure><img src="../img/ai-software-factory/validation.jpg" alt="Une étape en attente de validation" loading="lazy"><figcaption>Chaque étape attend une validation, ou une demande de modification.</figcaption></figure>
+      <figure class="wide"><img src="../img/ai-software-factory/termine.jpg" alt="Le projet terminé, avec ses fichiers" loading="lazy"><figcaption>Les huit étapes validées, et les fichiers produits.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="wrap next">
+    <div class="pager">
+      <a class="btn ghost" href="ziravo.html">← Ziravo</a>
+      <a class="btn ghost" href="../#projets">Tous les projets</a>
+    </div>
+  </section>
+</main>
+<footer class="wrap foot">Dypue Dilane Junior WANKAM · Brest</footer>
+</body>
+</html>

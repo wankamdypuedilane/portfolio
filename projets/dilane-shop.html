@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dilane Shop · étude de cas · Dilane WANKAM</title>
+<meta name="description" content="Dilane Shop : d’une boutique écrite en 4 jours à un service en production sur Kubernetes, avec une chaîne d’intégration sécurisée, la supervision et des sauvegardes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#070b1a">
+<script src="../site.js" defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f4e96'/%3E%3Ctext x='32' y='42' font-size='28' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3EDW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="bg-fx" aria-hidden="true"><i></i><i></i><i></i></div>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="../">Dilane WANKAM</a>
+    <nav>
+      <a href="../#projets">Projets</a>
+      <a href="../#competences">Compétences</a>
+      <a href="../#parcours">Parcours</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="case">
+  <section class="case-hero wrap">
+    <a class="back" href="../#projets">← Tous les projets</a>
+    <p class="tag">Étude de cas · infrastructure et DevSecOps</p>
+    <h1>Dilane Shop</h1>
+    <p class="lead">D’une boutique écrite en quatre jours à un service en production sur Kubernetes : chaque modification est analysée, testée, puis déployée sans coupure, et le site est supervisé et sauvegardé chaque nuit.</p>
+    <div class="meta">
+      <div><span>Rôle</span>Seul sur le projet : conception, code, infrastructure, exploitation</div>
+      <div><span>Période</span>Avril 2026, puis septembre à octobre 2026 (sprints 9 à 15)</div>
+      <div><span>Technique</span>Django, PostgreSQL, Docker, Kubernetes k3s, GitHub Actions, Prometheus, Grafana</div>
+    </div>
+    <p class="links"><a class="btn" href="https://dilane-shop.store/">Voir le site en ligne</a><a class="btn ghost" href="https://github.com/wankamdypuedilane/e-commerce">Code source et documentation</a></p>
+  </section>
+
+  <section class="wrap">
+    <ul class="metrics">
+      <li><strong>9 → 149</strong>tests automatiques</li>
+      <li><strong>30</strong>failles connues corrigées dans les dépendances</li>
+      <li><strong>~2 min</strong>pour analyser, tester et publier chaque modification</li>
+      <li><strong>Chaque nuit</strong>une sauvegarde de la base, 7 jours gardés</li>
+    </ul>
+  </section>
+
+  <section class="wrap">
+    <figure class="video">
+      <video src="../img/dilane-shop/demo.mp4" poster="../img/dilane-shop/demo-poster.jpg" controls muted playsinline loop preload="none"></video>
+      <figcaption>Un achat complet sur le site en production : panier, création de compte, livraison, puis paiement Stripe en mode test (aucune vraie carte) et confirmation. Vidéo accélérée.</figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap star">
+    <div class="star-step"><span class="letter">S</span><div><h2>Situation</h2>
+      <p>En avril 2026, j’ai écrit une boutique en ligne complète avec Django : catalogue, comptes, panier, paiement Stripe, gestion du stock. Elle tournait sur un seul serveur AWS EC2, avec sa base de données SQLite enregistrée dans le dépôt Git, sans conteneur, et seulement 9 tests.</p>
+      <p>Avant d’aller plus loin, j’ai fait l’audit de mon propre code : <strong>40 points faibles</strong>, de la sécurité des paiements à l’absence de sauvegarde.</p>
+    </div></div>
+    <div class="star-step"><span class="letter">T</span><div><h2>Tâche</h2>
+      <p>Transformer ce prototype en un service qu’on peut confier à de vrais clients : reproductible sur n’importe quelle machine, vérifié à chaque modification, disponible sans coupure, surveillé et sauvegardé. Et tout documenter, pour que quelqu’un d’autre puisse le reprendre.</p>
+      <p>J’ai organisé le travail en sprints courts, chacun avec un objectif, des tickets GitHub et un bilan écrit.</p>
+    </div></div>
+    <div class="star-step"><span class="letter">A</span><div><h2>Actions</h2>
+      <ol class="actions">
+        <li><strong>Conteneuriser.</strong> Une image Docker en plusieurs étapes, une base PostgreSQL séparée, le serveur Gunicorn. Le même conteneur tourne sur mon poste et en production.</li>
+        <li><strong>Orchestrer.</strong> Kubernetes, avec une configuration commune et deux variantes (Kustomize) : un cluster local pour tester, k3s en production. Plusieurs copies de l’application, des sondes de santé, des mises à jour progressives.</li>
+        <li><strong>Tester ce qui compte.</strong> Le webhook Stripe, seul code qui décrémente le stock, testé avec de vraies signatures ; le calcul de la TVA au centime près. La couverture est mesurée, et ne peut plus redescendre sous 76 % : la CI le refuse.</li>
+        <li><strong>Sécuriser la chaîne.</strong> Trois contrôles bloquants à chaque modification : les dépendances (pip-audit), le code (Bandit) et l’image Docker (Trivy). Le premier passage a trouvé 30 failles connues, corrigées avant d’activer le contrôle. Les secrets sont chiffrés dans le dépôt avec SOPS et age.</li>
+        <li><strong>Mettre en production.</strong> D’un serveur OVH nu jusqu’au site en HTTPS : k3s, ingress-nginx, certificat Let’s Encrypt renouvelé par cert-manager, image tirée de GHCR. Chaque étape est consignée pour pouvoir la rejouer.</li>
+        <li><strong>Surveiller et sauvegarder.</strong> Prometheus et Grafana mesurent les quatre signaux d’or (latence, trafic, erreurs, saturation), avec des alertes par courriel. Un test de charge (k6) pour les voir réagir. Une sauvegarde PostgreSQL chaque nuit à 3 h, sept jours gardés.</li>
+      </ol>
+    </div></div>
+    <div class="star-step"><span class="letter">R</span><div><h2>Résultats</h2>
+      <ul class="results">
+        <li>Le site est en production sur <a href="https://dilane-shop.store/">dilane-shop.store</a> depuis fin septembre 2026.</li>
+        <li>De 9 à 149 tests automatiques, et une couverture qui ne peut plus baisser.</li>
+        <li>Aucune modification ne part en production avec une faille connue : la chaîne s’arrête d’elle-même.</li>
+        <li>Une panne se voit dans Grafana et arrive par courriel, au lieu d’être découverte en visitant le site.</li>
+        <li>Chaque choix important est expliqué dans un document de décision (ADR), et chaque sprint dans un bilan.</li>
+      </ul>
+      <p class="lesson"><strong>Ce que j’en retiens.</strong> En explorant Azure, trois commandes m’ont renvoyé des résultats parfaitement lisibles… et faux. Depuis, je vérifie un résultat par une deuxième source avant de m’y fier.</p>
+    </div></div>
+  </section>
+
+  <section class="wrap">
+    <h2>Architecture</h2>
+    <figure class="diagram"><img src="../img/dilane-shop/architecture.svg" alt="Schéma : la pull request passe par GitHub Actions (pip-audit, Bandit, Trivy, tests), l’image est publiée sur GHCR puis déployée sur k3s, derrière ingress-nginx en HTTPS, avec PostgreSQL, sauvegarde nocturne, Prometheus, Grafana et alertes." loading="lazy"></figure>
+  </section>
+
+  <section class="wrap">
+    <h2>En images</h2>
+    <div class="gallery">
+      <figure class="wide"><img src="../img/dilane-shop/ci.jpg" alt="Une exécution réussie de la CI sur GitHub Actions" loading="lazy"><figcaption>La CI sur GitHub Actions : analyses de sécurité, tests, test de démarrage, publication de l’image. 1 min 53 s.</figcaption></figure>
+      <figure><img src="../img/dilane-shop/accueil.jpg" alt="Le catalogue de Dilane Shop" loading="lazy"><figcaption>Le catalogue, avec le stock vérifié côté serveur.</figcaption></figure>
+      <figure><img src="../img/dilane-shop/produit.jpg" alt="Une fiche produit" loading="lazy"><figcaption>Une fiche produit.</figcaption></figure>
+      <figure class="phone-fig"><img src="../img/dilane-shop/mobile.jpg" alt="Le site sur téléphone" loading="lazy"><figcaption>Sur téléphone.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="wrap next">
+    <div class="pager">
+      <span></span>
+      <a class="btn ghost" href="kalinoa.html">Kalinoa →</a>
+    </div>
+  </section>
+</main>
+<footer class="wrap foot">Dypue Dilane Junior WANKAM · Brest</footer>
+</body>
+</html>

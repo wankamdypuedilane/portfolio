@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" role="img" aria-label="Architecture de Kalinoa : contrôles à chaque pull request, application sur Vercel, données protégées par la Row-Level Security de Supabase, sauvegarde chiffrée chaque nuit">
+  <defs>
+    <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f4e96"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#c9d3e3;stroke-width:1.5}
+      .zone{fill:#f3f6fb;stroke:#1f4e96;stroke-width:1.5;stroke-dasharray:5 4}
+      .t{font-size:15px;font-weight:700;fill:#16202e}
+      .s{font-size:12.5px;fill:#5b6676}
+      .z{font-size:13px;font-weight:700;fill:#1f4e96;letter-spacing:.4px}
+      .a{stroke:#1f4e96;stroke-width:2;fill:none;marker-end:url(#fl)}
+      .ok{fill:#e8f5ee;stroke:#2e8b57}
+      .lock{fill:#fff4e5;stroke:#c77700}
+    </style>
+  </defs>
+
+  <rect class="zone" x="10" y="10" width="300" height="410" rx="16"/>
+  <text class="z" x="28" y="36">À CHAQUE PULL REQUEST · GITHUB</text>
+  <rect class="box" x="30" y="52" width="260" height="214" rx="12"/>
+  <text class="t" x="46" y="76">Contrôles automatiques</text>
+  <text class="s" x="46" y="100">lint et types TypeScript</text>
+  <text class="s" x="46" y="122">299 tests des règles métier</text>
+  <text class="s" x="46" y="144">1 798 vérifications de sécurité</text>
+  <text class="s" x="46" y="162">  sur un vrai Postgres embarqué</text>
+  <text class="s" x="46" y="184">construction de production</text>
+  <text class="s" x="46" y="206">npm audit : failles graves</text>
+  <text class="s" x="46" y="228">(aussi chaque lundi)</text>
+  <text class="s" x="46" y="252">tout vert = fusion possible</text>
+  <rect class="box ok" x="30" y="290" width="260" height="110" rx="12"/>
+  <text class="t" x="46" y="314">Sauvegarde, chaque nuit</text>
+  <text class="s" x="46" y="338">copie complète de la base</text>
+  <text class="s" x="46" y="358">chiffrée en AES-256 avant</text>
+  <text class="s" x="46" y="378">stockage, gardée 30 jours</text>
+
+  <rect class="zone" x="350" y="10" width="600" height="410" rx="16"/>
+  <text class="z" x="368" y="36">EN PRODUCTION</text>
+  <rect class="box" x="370" y="52" width="260" height="70" rx="12"/>
+  <text class="t" x="386" y="76">Pros et clients</text>
+  <text class="s" x="386" y="96">téléphone ou ordinateur (PWA)</text>
+  <text class="s" x="386" y="113">français, anglais, arabe</text>
+  <rect class="box" x="370" y="150" width="260" height="86" rx="12"/>
+  <text class="t" x="386" y="174">Application Next.js</text>
+  <text class="s" x="386" y="196">hébergée sur Vercel</text>
+  <text class="s" x="386" y="216">déployée à chaque fusion</text>
+  <rect class="box lock" x="370" y="264" width="560" height="136" rx="12"/>
+  <text class="t" x="386" y="288">Supabase : PostgreSQL et authentification</text>
+  <text class="s" x="386" y="312">Row-Level Security sur chaque table : la base elle-même refuse</text>
+  <text class="s" x="386" y="332">qu’un professionnel lise ou modifie les données d’un autre,</text>
+  <text class="s" x="386" y="352">même si l’interface avait un bug.</text>
+  <text class="s" x="386" y="376">Liens publics impossibles à deviner · journal d’audit non modifiable</text>
+  <rect class="box" x="670" y="52" width="260" height="184" rx="12"/>
+  <text class="t" x="686" y="76">Vie privée par conception</text>
+  <text class="s" x="686" y="100">pro et client ne s’échangent</text>
+  <text class="s" x="686" y="120">ni numéro ni e-mail : ils se</text>
+  <text class="s" x="686" y="140">parlent dans Kalinoa</text>
+  <text class="s" x="686" y="168">aucune clé secrète dans le code</text>
+  <text class="s" x="686" y="188">ni dans le dépôt</text>
+  <path class="a" d="M500 122 V148"/>
+  <path class="a" d="M500 236 V262"/>
+  <path class="a" d="M290 158 H322 Q330 158 330 166 V185 Q330 193 338 193 H368"/>
+  <path class="a" d="M368 345 H292"/>
+</svg>
